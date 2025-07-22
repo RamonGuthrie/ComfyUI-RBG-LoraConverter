@@ -4,9 +4,11 @@
 [![1 Node](https://img.shields.io/badge/Nodes-1-green?style=for-the-badge)](https://github.com/RamonGuthrie/ComfyUI-RBG-LoraConverter)
 [![1 Category](https://img.shields.io/badge/Categories-1-orange?style=for-the-badge)](https://github.com/RamonGuthrie/ComfyUI-RBG-LoraConverter)
 
+<img width="1841" height="1054" alt="Screenshot 2025-07-22 174215" src="https://github.com/user-attachments/assets/4394f507-f060-4c97-ae10-609030c0a22e" />
+
 A simple but powerful LoRA key converter for ComfyUI. This node is designed to help you convert LoRA models with old or non-standard key names to the new format, ensuring compatibility with the latest versions of ComfyUI and other platforms.
 
-📝 This node also fixes issues with LoRA models trained and produced with [FAL.AI](https://fal.ai), which may not work correctly in ComfyUI or with ComfyUI-nunchaku nodes.
+📝 This node also fixes issues with LoRA models trained and produced with [FAL.AI](https://fal.ai), which may not work correctly in [ComfyUI](https://github.com/comfyanonymous/ComfyUI) or with [ComfyUI-nunchaku](https://github.com/nunchaku-tech/ComfyUI-nunchaku) nodes.
 
 ***
 
