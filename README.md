@@ -51,6 +51,3 @@ Contributions are always welcome! If you have any suggestions, improvements, or 
 
 ***
 
-## License 📜
-
-This project is licensed under the MIT License.
