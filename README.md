@@ -25,6 +25,10 @@ If you are having issues with LoRA models trained with [FAL.AI](https://fal.ai),
 
 ***
 
+
+https://github.com/user-attachments/assets/c833c22e-a19a-4cfb-a0ad-6accc7602c19
+
+
 ## Installation 🛠️
 
 1.  Clone this repository into your `ComfyUI/custom_nodes` directory:
