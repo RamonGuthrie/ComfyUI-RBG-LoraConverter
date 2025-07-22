@@ -57,4 +57,4 @@ Contributions are always welcome! If you have any suggestions, improvements, or 
 
 ## License 📜
 
-This project is licensed under the MIT License.
+This tool is provided under the MIT License. You are free to use it, fork it, and share links to my repository. Please respect the original licenses of any models or LoRAs you are converting. If you find this tool useful, a credit or mention would be greatly appreciated — it helps support further development and visibility.
