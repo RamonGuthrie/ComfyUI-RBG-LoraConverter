@@ -24,10 +24,10 @@ If you are having issues with LoRA models trained with [FAL.AI](https://fal.ai),
 *   **Error Handling:** The node will skip files that have already been converted and report any errors that occur during the conversion process.
 
 ***
-
+<img width="3220" height="1801" alt="Screenshot 2025-07-29 165506" src="https://github.com/user-attachments/assets/61ae5d51-9af5-4ed2-8c9a-1a347321b283" />
 
 https://github.com/user-attachments/assets/c833c22e-a19a-4cfb-a0ad-6accc7602c19
-
+***
 
 ## Installation 🛠️
 
