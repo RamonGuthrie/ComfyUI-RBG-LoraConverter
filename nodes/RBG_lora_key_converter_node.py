@@ -110,21 +110,41 @@ class RBGLoraKeyConverterNode:
             new_state_dict = {}
             sds_sd = state_dict.copy()
 
-            if any("final_layer" in k for k in sds_sd):
-                final_layer_keys = {
-                    "lora_unet_final_layer_adaLN_modulation_1.lora_down.weight": "norm_out.linear.lora_A.weight",
-                    "lora_unet_final_layer_adaLN_modulation_1.lora_up.weight": "norm_out.linear.lora_B.weight",
-                    "lora_unet_final_layer_linear.lora_down.weight": "proj_out.lora_A.weight",
-                    "lora_unet_final_layer_linear.lora_up.weight": "proj_out.lora_B.weight",
-                }
+            final_layer_keys_forward = {
+                "lora_unet_final_layer_adaLN_modulation_1.lora_down.weight": "norm_out.linear.lora_A.weight",
+                "lora_unet_final_layer_adaLN_modulation_1.lora_up.weight": "norm_out.linear.lora_B.weight",
+                "lora_unet_final_layer_linear.lora_down.weight": "proj_out.lora_A.weight",
+                "lora_unet_final_layer_linear.lora_up.weight": "proj_out.lora_B.weight",
+            }
+            final_layer_keys_reverse = {v: k for k, v in final_layer_keys_forward.items()}
 
-                for old_key, new_key in final_layer_keys.items():
+            is_forward = any(k in sds_sd for k in final_layer_keys_forward)
+            is_reverse = any(k in sds_sd for k in final_layer_keys_reverse)
+
+            conversion_performed = False
+            if is_forward:
+                print(f"Performing forward conversion for {os.path.basename(input_path)}")
+                for old_key, new_key in final_layer_keys_forward.items():
                     if old_key in sds_sd:
                         value = sds_sd.pop(old_key)
                         if "adaLN_modulation" in old_key:
                             shift, scale = value.chunk(2, dim=0)
                             value = torch.cat([scale, shift], dim=0)
                         new_state_dict[new_key] = value
+                conversion_performed = True
+            elif is_reverse:
+                print(f"Performing reverse conversion for {os.path.basename(input_path)}")
+                for old_key, new_key in final_layer_keys_reverse.items():
+                    if old_key in sds_sd:
+                        value = sds_sd.pop(old_key)
+                        if "adaLN_modulation" in new_key:
+                            scale, shift = value.chunk(2, dim=0)
+                            value = torch.cat([shift, scale], dim=0)
+                        new_state_dict[new_key] = value
+                conversion_performed = True
+
+            if not conversion_performed:
+                print(f"No convertible keys found in {os.path.basename(input_path)}. Saving as is.")
 
             for key, value in sds_sd.items():
                 new_state_dict[key] = value
