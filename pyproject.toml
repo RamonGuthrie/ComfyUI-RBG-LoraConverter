@@ -8,6 +8,7 @@ version = "1.0.0"
 description = "A node for converting LoRA (Low-Rank Adaptation) keys in ComfyUI."
 readme = "README.md"
 requires-python = ">=3.8"
+#  Used by Comfy Registry https://comfyregistry.org
 license = { text = "MIT" }
 authors = [
   { name = "Ramon Guthrie"},
@@ -34,4 +35,5 @@ dependencies = [
 [project.urls]
 "Homepage" = "https://github.com/RamonGuthrie/comfyui-rbg-lora-converter"
 "Bug Tracker" = "https://github.com/RamonGuthrie/comfyui-rbg-lora-converter/issues"
+
 "Linkedin" = "https://www.linkedin.com/in/ramonguthrie"
